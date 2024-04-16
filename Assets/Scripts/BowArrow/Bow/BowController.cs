@@ -16,7 +16,7 @@ public class BowController : MonoBehaviour
         freeLocalPosition = ropeTransform.localPosition; 
         foreach(var list in positions)
         {
-
+            positions.Add(freeLocalPosition);
         }
     }
     public void Update()

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2855248724032232508}
   - component: {fileID: 8355423436517691686}
   - component: {fileID: 8927639014250767583}
+  - component: {fileID: 3485933286168052877}
   m_Layer: 0
   m_Name: Person
   m_TagString: Player
@@ -98,11 +99,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa8a48c0988a04418b0918207704a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onJumpAnimator:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3485933286168052877}
+        m_TargetAssemblyTypeName: PersonAnimatorContoller, Assembly-CSharp
+        m_MethodName: Jumping
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMoveAnimator:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3485933286168052877}
+        m_TargetAssemblyTypeName: PersonAnimatorContoller, Assembly-CSharp
+        m_MethodName: Moving
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   cameraPerson: {fileID: 0}
-  anim_Person: {fileID: 3121341055654893520}
   rb_Person: {fileID: 8355423436517691686}
   currentSpeed: 10
   jumpForce: 5
+--- !u!114 &3485933286168052877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2605508144739629138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01452c94bc0ba1c45b7c11058aaf8a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  person: {fileID: 3121341055654893520}
 --- !u!1 &6043925987913077215
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +232,7 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: 8d0cef2fe4267cc4cb2e206d27f46457, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: e7ea24e636352a441b43d07c9b9436f5, type: 2}
+      objectReference: {fileID: 9100000, guid: c4954d3448410da429ddc877bd7546d6, type: 2}
     - target: {fileID: 5866666021909216657, guid: 8d0cef2fe4267cc4cb2e206d27f46457, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 1
