@@ -9,8 +9,7 @@ public class BowController : MonoBehaviour
     [SerializeField] private Vector3 tenseLocalPosition; 
     private float tension; 
     public List<Vector3> positions = new List<Vector3>();
-
-    private bool isPressed = false;
+     
     public void Start()
     {
         freeLocalPosition = ropeTransform.localPosition; 
@@ -19,25 +18,18 @@ public class BowController : MonoBehaviour
             positions.Add(freeLocalPosition);
         }
     }
-    public void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
+    public void AimBow(bool isPressedMouseButton)
+    { 
+        if (isPressedMouseButton && tension <= 1)
         {
-            isPressed = true;
-            
+            tension += Time.deltaTime; 
+            ropeTransform.localPosition = Vector3.Lerp(freeLocalPosition, tenseLocalPosition, tension);
         }
-        if (Input.GetMouseButtonUp(0))
+        if (!isPressedMouseButton)
         {
-            isPressed = false;
             tension = 0;
             ropeTransform.localPosition = freeLocalPosition;
         }
-        if(isPressed && tension <= 1)
-        {
-            tension += Time.deltaTime;
-            tension = Mathf.Clamp01(tension);
-            ropeTransform.localPosition = Vector3.Lerp(freeLocalPosition, tenseLocalPosition, tension); 
-        }   
     }
 }
     

@@ -1,18 +1,19 @@
  
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PersonAnimatorContoller : MonoBehaviour
 {
     public Animator person; 
    
-    public void AimRow(bool isPressed)
+    public void PersonAimBow(bool isPressed)
     {   
         if (isPressed)
             person.SetBool("isAim", true);
         if(!isPressed)
             person.SetBool("isAim", false);
     }
-    public void EquipRow(bool isKeyDown)
+    public void EquipBow(bool isKeyDown)
     {
         if(isKeyDown)
             person.SetBool("isReady", true);
