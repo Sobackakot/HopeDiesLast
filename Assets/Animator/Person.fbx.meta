@@ -13,22 +13,22 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: ely-vanguardsoldier-kerwinatienza_diffuse
-    second: {fileID: 2800000, guid: 77d13d13d9b6e23409fed339b08e5be3, type: 3}
+    second: {fileID: 2800000, guid: baed8f37ae894854dacd227cee69a892, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: ely-vanguardsoldier-kerwinatienza_glow
-    second: {fileID: 2800000, guid: 6d6a48025d989314b818d2cd7c4bfdcf, type: 3}
+    second: {fileID: 2800000, guid: c82caf6b27b667341b589d2f8852903a, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: ely-vanguardsoldier-kerwinatienza_normal
-    second: {fileID: 2800000, guid: 28f9b913d42219741873850cda7d5cf8, type: 3}
+    second: {fileID: 2800000, guid: 80122b7ce1bc58c4e90a87c5109634f2, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: ely-vanguardsoldier-kerwinatienza_specular
-    second: {fileID: 2800000, guid: 977876cd6218b0948bae2d7a146574d2, type: 3}
+    second: {fileID: 2800000, guid: e063a7b149b5a504a873194351552318, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
