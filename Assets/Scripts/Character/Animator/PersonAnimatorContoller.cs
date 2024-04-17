@@ -5,14 +5,14 @@ public class PersonAnimatorContoller : MonoBehaviour
 {
     public Animator person; 
    
-    public void PersonAimBowAnimator(bool isPressed) //call in InputContoller LeftMouseAimWithBowPerson()
+    public void PersonAimBowAnimator(bool isPressed) //call in InputContoller
     {   
         if (isPressed)
             person.SetBool("isAim", true);
         if(!isPressed)
             person.SetBool("isAim", false);
     }
-    public void PersonEquipBowAmimator(bool isKeyDown) //call in InputContoller InputKeyEquipBowPerson()
+    public void PersonEquipBowAmimator(bool isKeyDown) //call in InputContoller 
     {
         if(isKeyDown)
             person.SetBool("isReady", true);
@@ -40,7 +40,7 @@ public class PersonAnimatorContoller : MonoBehaviour
         else
             person.SetBool("isJumping", false);
     }
-    public void TurnWithBowPersonAnimator(float slowMouseX) //call in InputContoller InputMouseXTurnWithBowPerson()
+    public void TurnWithBowPersonAnimator(float slowMouseX) //call in InputContoller 
     {
         person.SetFloat("MouseX", slowMouseX);
     }

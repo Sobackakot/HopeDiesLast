@@ -41,14 +41,14 @@ public class MovePerson : MonoBehaviour
         onMoveAnimator.Invoke(m_Input, _isRunning);
     }
 
-    public void Running(bool isRunning) //call in InputContoller InputKeyRunnigPerson() 
+    public void Running(bool isRunning) //call in InputContoller 
     {
         _isRunning = isRunning;
         float moveSpeed = currentSpeed * (_isRunning ? 1 : 0.4f); 
         rb_Person.MovePosition(rb_Person.position + newDirectionMove * moveSpeed * Time.deltaTime); 
     }
 
-    public void Jumping(bool isJump) //call in InputContoller InputKeyJumpPerson() 
+    public void Jumping(bool isJump) //call in InputContoller 
     { 
         onJumpAnimator.Invoke(isJump, isTerra); 
         if (isTerra & isJump) 
