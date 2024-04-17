@@ -9,6 +9,7 @@ public class InputContoller : MonoBehaviour
     [SerializeField] private UnityEvent<float> onTurnBowPersonAnimator;
     [SerializeField] private UnityEvent<bool> onJumpPerson;
     [SerializeField] private UnityEvent<bool> onRunPerson;
+    [SerializeField] private UnityEvent<Vector3> onAxisDirectionMove;
 
     private bool isKeyDown = false;
     private bool isPressedMouseButton = false;
@@ -21,6 +22,7 @@ public class InputContoller : MonoBehaviour
         InputMouseXTurnWithBowPerson();
         InputKeyJumpPerson();
         InputKeyRunnigPerson();
+        InputAxisDirectionMove();
     }
     private void InputKeyEquipBowPerson()
     {
@@ -57,5 +59,10 @@ public class InputContoller : MonoBehaviour
     {
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
         onRunPerson.Invoke(isRunning);
+    }
+    private void InputAxisDirectionMove()
+    {
+        Vector3 InputAxis = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        onAxisDirectionMove.Invoke(InputAxis);
     }
 }

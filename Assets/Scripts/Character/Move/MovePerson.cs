@@ -17,28 +17,19 @@ public class MovePerson : MonoBehaviour
     public float jumpForce = 5f;
        
     private bool isTerra = false;
-    private bool _isRunning = false;
+    private bool _isRunning = false; 
 
-
-    private void Update()
-    {
-        CalculateDirectionMove();
-    }
-
-    private void CalculateDirectionMove()
+    public void CalculateDirectionMove(Vector3 InputAxis) //call in InputContoller 
     {   
         Vector3 directionVertical = cameraPerson.forward; // получаем текуще направление камеры
         Vector3 directionHorizontal = cameraPerson.right;
         directionVertical.y = 0; // сбрасываем трансформ по вертикальной оси 
-        directionHorizontal.y = 0;
-         
-        Vector3 m_Input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")); // получаем текущее направление движения 
-        newDirectionMove = (m_Input.z * directionVertical) + (m_Input.x * directionHorizontal);// приводим напрвление к направлению камеры
+        directionHorizontal.y = 0; 
+        newDirectionMove = (InputAxis.z * directionVertical) + (InputAxis.x * directionHorizontal);// приводим напрвление к направлению камеры
         
         if (newDirectionMove.sqrMagnitude >= 0.2f)
-            transform.rotation = Quaternion.LookRotation(newDirectionMove, Vector3.up); //поворачиваем персонажа в сторону камеры
-         
-        onMoveAnimator.Invoke(m_Input, _isRunning);
+            transform.rotation = Quaternion.LookRotation(newDirectionMove); //поворачиваем персонажа в сторону камеры 
+        onMoveAnimator.Invoke(InputAxis, _isRunning);
     }
 
     public void Running(bool isRunning) //call in InputContoller 
