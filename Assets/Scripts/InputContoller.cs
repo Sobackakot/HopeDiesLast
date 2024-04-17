@@ -7,6 +7,8 @@ public class InputContoller : MonoBehaviour
     [SerializeField] private UnityEvent<bool> onAimBowPersonAnimator;
     [SerializeField] private UnityEvent<bool> onEquipBowPersonAnimator;
     [SerializeField] private UnityEvent<float> onTurnBowPersonAnimator;
+    [SerializeField] private UnityEvent<bool> onJumpPerson;
+    [SerializeField] private UnityEvent<bool> onRunPerson;
 
     private bool isKeyDown = false;
     private bool isPressedMouseButton = false;
@@ -14,11 +16,13 @@ public class InputContoller : MonoBehaviour
 
     private void Update()
     {
-        EquipBowPerson();
-        AimBowPerson();
-        TurnWithBowPerson();
+        InputKeyEquipBowPerson();
+        LeftMouseAimWithBowPerson();
+        InputMouseXTurnWithBowPerson();
+        InputKeyJumpPerson();
+        InputKeyRunnigPerson();
     }
-    private void EquipBowPerson()
+    private void InputKeyEquipBowPerson()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -26,7 +30,7 @@ public class InputContoller : MonoBehaviour
             onEquipBowPersonAnimator.Invoke(isKeyDown);
         }
     }
-    private void AimBowPerson()
+    private void LeftMouseAimWithBowPerson()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -38,10 +42,20 @@ public class InputContoller : MonoBehaviour
         }
         onAimBowPersonAnimator.Invoke(isPressedMouseButton);
     }
-    private void TurnWithBowPerson()
+    private void InputMouseXTurnWithBowPerson()
     {
         float mouseX = Input.GetAxis("Mouse X");
         slowMouseX = Mathf.Lerp(slowMouseX, mouseX, 10 * Time.deltaTime);
         onTurnBowPersonAnimator.Invoke(slowMouseX);
+    }
+    private void InputKeyJumpPerson()
+    {
+        bool isJumping = Input.GetKeyDown(KeyCode.Space);
+        onJumpPerson.Invoke(isJumping);
+    }
+    private void InputKeyRunnigPerson()
+    {
+        bool isRunning = Input.GetKey(KeyCode.LeftShift);
+        onRunPerson.Invoke(isRunning);
     }
 }

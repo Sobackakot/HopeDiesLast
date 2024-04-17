@@ -5,21 +5,21 @@ public class PersonAnimatorContoller : MonoBehaviour
 {
     public Animator person; 
    
-    public void PersonAimBow(bool isPressed)
+    public void PersonAimBowAnimator(bool isPressed) //call in InputContoller LeftMouseAimWithBowPerson()
     {   
         if (isPressed)
             person.SetBool("isAim", true);
         if(!isPressed)
             person.SetBool("isAim", false);
     }
-    public void PersonEquipBow(bool isKeyDown)
+    public void PersonEquipBowAmimator(bool isKeyDown) //call in InputContoller InputKeyEquipBowPerson()
     {
         if(isKeyDown)
             person.SetBool("isReady", true);
         if(!isKeyDown)
             person.SetBool("isReady", false); 
     }
-    public void Moving(Vector3 m_Input, bool isRunning)
+    public void RunningPersonAnimator(Vector3 m_Input, bool isRunning) //call in MovePerson
     { 
         float animationSpeed = isRunning ? 1 : 0.6f; 
         if (m_Input.sqrMagnitude > 0) 
@@ -33,14 +33,14 @@ public class PersonAnimatorContoller : MonoBehaviour
             person.SetFloat("velocityY", 0, 0.1f, Time.deltaTime); 
         }
     }
-    public void Jumping(bool isJump, bool isTerra)
+    public void JumpingPersonAnimator(bool isJump, bool isTerra) //call in MovePerson  
     {   
         if (isJump && isTerra)
             person.SetBool("isJumping", true);
         else
             person.SetBool("isJumping", false);
     }
-    public void TurnWithBowPerson(float slowMouseX)
+    public void TurnWithBowPersonAnimator(float slowMouseX) //call in InputContoller InputMouseXTurnWithBowPerson()
     {
         person.SetFloat("MouseX", slowMouseX);
     }
