@@ -35,7 +35,7 @@ public class MovePerson : MonoBehaviour
         Vector3 directionMove = (m_Input.z * directionVertical) + (m_Input.x * directionHorizontal);// приводим напрвление к направлению камеры
         
         if (directionMove.sqrMagnitude >= 0.2f)
-            transform.rotation = Quaternion.LookRotation(directionMove); //поворачиваем персонажа в сторону камеры
+            transform.rotation = Quaternion.LookRotation(directionMove, Vector3.up); //поворачиваем персонажа в сторону камеры
 
         MovingPerson(directionMove); 
         onMoveAnimator.Invoke(m_Input, isRunning);

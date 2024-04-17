@@ -1,6 +1,5 @@
  
 using UnityEngine;
-using UnityEngine.Events;
 
 public class PersonAnimatorContoller : MonoBehaviour
 {
@@ -13,12 +12,12 @@ public class PersonAnimatorContoller : MonoBehaviour
         if(!isPressed)
             person.SetBool("isAim", false);
     }
-    public void EquipBow(bool isKeyDown)
+    public void PersonEquipBow(bool isKeyDown)
     {
         if(isKeyDown)
             person.SetBool("isReady", true);
         if(!isKeyDown)
-            person.SetBool("isReady", false);
+            person.SetBool("isReady", false); 
     }
     public void Moving(Vector3 m_Input, bool isRunning)
     { 
@@ -40,5 +39,9 @@ public class PersonAnimatorContoller : MonoBehaviour
             person.SetBool("isJumping", true);
         else
             person.SetBool("isJumping", false);
+    }
+    public void TurnWithBowPerson(float slowMouseX)
+    {
+        person.SetFloat("MouseX", slowMouseX);
     }
 }
