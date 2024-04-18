@@ -9,11 +9,13 @@ public class InputContoller : MonoBehaviour
     [SerializeField] private UnityEvent<float> onTurnBowPersonAnimator;
     [SerializeField] private UnityEvent<bool> onJumpPerson;
     [SerializeField] private UnityEvent<bool> onRunPerson;
-    [SerializeField] private UnityEvent<Vector3> onAxisDirectionMove; 
+    [SerializeField] private UnityEvent<Vector3> onAxisDirectionMove;
+    [SerializeField] private UnityEvent<Vector3, bool> onCorrectionDirectionSkin;
 
     private bool isKeyDown = false;
     private bool isPressedMouseButton = false;
-    private float slowMouseX = 0f;  
+    private float slowMouseX = 0f;
+    private Vector3 InputAxis;
 
     private void Update()
     {
@@ -29,8 +31,9 @@ public class InputContoller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             isKeyDown = !isKeyDown;
-            onEquipBowPersonAnimator.Invoke(isKeyDown);
+            onEquipBowPersonAnimator.Invoke(isKeyDown); 
         }
+        onCorrectionDirectionSkin.Invoke(InputAxis, isKeyDown);
     }
     private void LeftMouseAimWithBowPerson()
     {
@@ -62,7 +65,7 @@ public class InputContoller : MonoBehaviour
     }
     private void InputAxisDirectionMove()
     {
-        Vector3 InputAxis = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        InputAxis = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         onAxisDirectionMove.Invoke(InputAxis);
-    }
+    } 
 }
