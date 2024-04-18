@@ -278,6 +278,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onCorrectionDirectionSkin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 767536554}
+        m_TargetAssemblyTypeName: CorrectionDirectionSkinPerson, Assembly-CSharp
+        m_MethodName: SetNewDirectionSkin
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &74932725
 Transform:
   m_ObjectHideFlags: 0
@@ -635,6 +650,19 @@ MonoBehaviour:
   bowHand: {fileID: 1676824490}
   bowBack: {fileID: 1583646968}
   arrow: {fileID: 1054087627}
+--- !u!114 &767536554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767536548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509497fcf24688b48a009415b705dbfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  personSkin: {fileID: 1647073670}
 --- !u!4 &785446976 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2308035818771791746, guid: 15d6cffeb81445d42abd059aa0b940b4, type: 3}
@@ -926,6 +954,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8355423436517691686, guid: 15d6cffeb81445d42abd059aa0b940b4, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 8927639014250767583, guid: 15d6cffeb81445d42abd059aa0b940b4, type: 3}
       propertyPath: cameraPerson
       value: 
@@ -954,6 +986,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2605508144739629138, guid: 15d6cffeb81445d42abd059aa0b940b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 767536552}
+    - targetCorrespondingSourceObject: {fileID: 2605508144739629138, guid: 15d6cffeb81445d42abd059aa0b940b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 767536554}
   m_SourcePrefab: {fileID: 100100000, guid: 15d6cffeb81445d42abd059aa0b940b4, type: 3}
 --- !u!1 &1583646968 stripped
 GameObject:
@@ -964,6 +999,11 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8259447661460693361, guid: fc461af9961bc2643bd28f263581bca8, type: 3}
   m_PrefabInstance: {fileID: 2065393683}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1647073670 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9057046660350922154, guid: 15d6cffeb81445d42abd059aa0b940b4, type: 3}
+  m_PrefabInstance: {fileID: 1543328069}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1676824490 stripped
 GameObject:
