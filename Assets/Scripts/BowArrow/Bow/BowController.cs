@@ -4,21 +4,16 @@ using UnityEngine;
 
 public class BowController : MonoBehaviour
 {
-    [SerializeField] private Transform ropeTransform;
-    private Vector3 freeLocalPosition;
-    [SerializeField] private Vector3 tenseLocalPosition; 
-    private float tension; 
-    public List<Vector3> positions = new List<Vector3>();
+    [SerializeField] private Transform ropeTransform; // текущая позиция тетивы 
+    private Vector3 freeLocalPosition; // состояние тетивы в свободном положении
+    [SerializeField] private Vector3 tenseLocalPosition; // состояние тетевы в натянутом положении
+    private float tension; // прогресс натяжения тетевы
      
     public void Start()
     {
         freeLocalPosition = ropeTransform.localPosition; 
-        foreach(var list in positions)
-        {
-            positions.Add(freeLocalPosition);
-        }
-    }
-    public void AimBow(bool isPressedMouseButton)
+    } 
+    public void TensionBowStrings(bool isPressedMouseButton) //call in InputContoller Aim Bow
     { 
         if (isPressedMouseButton && tension <= 1)
         {

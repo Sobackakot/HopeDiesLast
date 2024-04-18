@@ -9,15 +9,13 @@ public class PersonAnimatorContoller : MonoBehaviour
     {   
         if (isPressed)
             person.SetBool("isAim", true);
-        if(!isPressed)
-            person.SetBool("isAim", false);
+        else person.SetBool("isAim", false);
     }
     public void PersonEquipBowAmimator(bool isKeyDown) //call in InputContoller 
     {
         if(isKeyDown)
             person.SetBool("isReady", true);
-        if(!isKeyDown)
-            person.SetBool("isReady", false); 
+        else person.SetBool("isReady", false); 
     }
     public void RunningPersonAnimator(Vector3 m_Input, bool isRunning) //call in MovePerson
     { 

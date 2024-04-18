@@ -46,8 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ropeTransform: {fileID: 1574339538012660285}
-  tenseLocalPosition: {x: 0.812, y: 0, z: 0}
-  tension: 10
+  tenseLocalPosition: {x: 0.65, y: 0, z: 0}
 --- !u!1001 &3188302673352985154
 PrefabInstance:
   m_ObjectHideFlags: 0

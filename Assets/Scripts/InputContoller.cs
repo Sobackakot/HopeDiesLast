@@ -9,7 +9,7 @@ public class InputContoller : MonoBehaviour
     [SerializeField] private UnityEvent<float> onTurnBowPersonAnimator;
     [SerializeField] private UnityEvent<bool> onJumpPerson;
     [SerializeField] private UnityEvent<bool> onRunPerson;
-    [SerializeField] private UnityEvent<Vector3> onAxisDirectionMove;
+    [SerializeField] private UnityEvent<Vector3> onAxisDirectionMove; 
 
     private bool isKeyDown = false;
     private bool isPressedMouseButton = false;
@@ -41,7 +41,7 @@ public class InputContoller : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             isPressedMouseButton = false;
-        }
+        } 
         onAimBowPersonAnimator.Invoke(isPressedMouseButton);
     }
     private void InputMouseXTurnWithBowPerson()
