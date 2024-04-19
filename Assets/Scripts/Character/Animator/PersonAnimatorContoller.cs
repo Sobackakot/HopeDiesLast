@@ -37,9 +37,5 @@ public class PersonAnimatorContoller : MonoBehaviour
             person.SetBool("isJumping", true);
         else
             person.SetBool("isJumping", false);
-    }
-    public void TurnWithBowPersonAnimator(float slowMouseX) //call in InputContoller 
-    {
-        person.SetFloat("MouseX", slowMouseX);
-    }
+    } 
 }

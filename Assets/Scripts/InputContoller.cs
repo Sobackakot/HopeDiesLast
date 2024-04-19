@@ -1,30 +1,39 @@
  
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class InputContoller : MonoBehaviour
 {
     [SerializeField] private UnityEvent<bool> onAimBowPersonAnimator;
-    [SerializeField] private UnityEvent<bool> onEquipBowPersonAnimator;
-    [SerializeField] private UnityEvent<float> onTurnBowPersonAnimator;
+    [SerializeField] private UnityEvent<bool> onEquipBowPersonAnimator; 
     [SerializeField] private UnityEvent<bool> onJumpPerson;
     [SerializeField] private UnityEvent<bool> onRunPerson;
     [SerializeField] private UnityEvent<Vector3> onAxisDirectionMove;
-    [SerializeField] private UnityEvent<Vector3, bool> onCorrectionDirectionSkin;
+    [SerializeField] private UnityEvent<float,float> onAxisDirectionRotateCamera;
+    [SerializeField] private UnityEvent<float> onInputZoomCamera;
+
 
     private bool isKeyDown = false;
     private bool isPressedMouseButton = false;
-    private float slowMouseX = 0f;
+     
     private Vector3 InputAxis;
+    private float inputMouseX;
+    private float inputMouseY;
+    private float currentZoomMouse; 
 
     private void Update()
     {
         InputKeyEquipBowPerson();
         LeftMouseAimWithBowPerson();
-        InputMouseXTurnWithBowPerson();
+        InputMouseDrectionRotateCamera(); 
+        InputAxisDirectionMove();
         InputKeyJumpPerson();
         InputKeyRunnigPerson();
-        InputAxisDirectionMove();
+    } 
+    private void LateUpdate()
+    {
+        InputMouseDrectionRotateCamera();
     }
     private void InputKeyEquipBowPerson()
     {
@@ -32,8 +41,7 @@ public class InputContoller : MonoBehaviour
         {
             isKeyDown = !isKeyDown;
             onEquipBowPersonAnimator.Invoke(isKeyDown); 
-        }
-        onCorrectionDirectionSkin.Invoke(InputAxis, isKeyDown);
+        } 
     }
     private void LeftMouseAimWithBowPerson()
     {
@@ -47,11 +55,13 @@ public class InputContoller : MonoBehaviour
         } 
         onAimBowPersonAnimator.Invoke(isPressedMouseButton);
     }
-    private void InputMouseXTurnWithBowPerson()
-    {
-        float mouseX = Input.GetAxis("Mouse X");
-        slowMouseX = Mathf.Lerp(slowMouseX, mouseX, 10 * Time.deltaTime);
-        onTurnBowPersonAnimator.Invoke(slowMouseX);
+    private void InputMouseDrectionRotateCamera()
+    {   
+        inputMouseX += Input.GetAxis("Mouse X");
+        inputMouseY -= Input.GetAxis("Mouse Y");
+        currentZoomMouse -= Input.GetAxis("Mouse ScrollWheel");
+        onAxisDirectionRotateCamera.Invoke(inputMouseX, inputMouseY);
+        onInputZoomCamera.Invoke(currentZoomMouse);
     }
     private void InputKeyJumpPerson()
     {
