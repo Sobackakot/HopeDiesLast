@@ -26,9 +26,12 @@ public class MovePerson : MonoBehaviour
         directionVertical.y = 0; // сбрасываем трансформ по вертикальной оси 
         directionHorizontal.y = 0; 
         newDirectionMove = (InputAxis.z * directionVertical) + (InputAxis.x * directionHorizontal);// приводим напрвление к направлению камеры
-        
-        if (newDirectionMove.sqrMagnitude >= 0.2f)
-            transform.rotation = Quaternion.LookRotation(newDirectionMove); //поворачиваем персонажа в сторону камеры 
+
+        if (newDirectionMove.sqrMagnitude >= 0.2f)//поворачиваем персонажа в сторону камеры 
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(newDirectionMove, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
+        }
         onMoveAnimator.Invoke(InputAxis, _isRunning);
     }
 
