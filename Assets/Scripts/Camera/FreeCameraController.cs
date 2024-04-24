@@ -1,10 +1,14 @@
 
+using UnityEditor.Rendering;
 using UnityEngine; 
 
 public class FreeCameraController : MonoBehaviour
 {
-    public GameObject player;
-    public Vector3 offset;
+    [SerializeField] private Transform targetLookPoint;
+    [SerializeField] private Vector3 offset;
+
+    [SerializeField] private Transform aimCameraPos; 
+
 
     public float sensitivityMouse = 2f;
     public float maxAngle = 45f;
@@ -16,24 +20,22 @@ public class FreeCameraController : MonoBehaviour
     public float minZoom = 2f;
     public float maxZoom = 10f;
     public float speedZoom = 5f;
-
-    
     
     private void Start()
-    {
-        offset = transform.position - player.transform.position;
+    { 
+        offset = transform.position - targetLookPoint.transform.position; 
         Cursor.lockState = CursorLockMode.Locked;
     }
     public void RotateCamera(float inputMouseX,float inputMouseY) // call in InputContoller
     {
         _inputMouseX = inputMouseX * sensitivityMouse;
         _inputMouseY = Mathf.Clamp(inputMouseY * sensitivityMouse, minAngle, maxAngle); 
-        transform.localEulerAngles = new Vector3(_inputMouseY, _inputMouseX, 0);
-        transform.position = transform.localRotation * offset + player.transform.position; 
+        transform.localEulerAngles = new Vector3(_inputMouseY, _inputMouseX, 0);  
+        transform.position = transform.localRotation * offset + targetLookPoint.position;
     } 
     public void ZoomCamera(float currentZoomMouse) // call in InputContoller
     { 
         _currentZoomMouse = Mathf.Clamp(currentZoomMouse * speedZoom, minZoom, maxZoom); 
-        transform.position = player.transform.position - transform.forward * _currentZoomMouse;
-    }
+        transform.position = targetLookPoint.transform.position - transform.forward * _currentZoomMouse;
+    } 
 }

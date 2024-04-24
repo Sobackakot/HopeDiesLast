@@ -1,7 +1,8 @@
- 
+
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InputContoller : MonoBehaviour
 {
@@ -25,15 +26,17 @@ public class InputContoller : MonoBehaviour
     private void Update()
     {
         InputKeyEquipBowPerson();
-        LeftMouseAimWithBowPerson();
-        InputMouseDrectionRotateCamera(); 
-        InputAxisDirectionMove();
+        LeftMouseAimWithBowPerson(); 
         InputKeyJumpPerson();
-        InputKeyRunnigPerson();
+        InputKeyRunnigPerson(); 
     } 
     private void LateUpdate()
-    {
+    {    
+        InputAxisDirectionMove();
         InputMouseDrectionRotateCamera();
+        if(!isPressedMouseButton) 
+            InputMouseScroll();
+        
     }
     private void InputKeyEquipBowPerson()
     {
@@ -46,21 +49,21 @@ public class InputContoller : MonoBehaviour
     private void LeftMouseAimWithBowPerson()
     {
         if (Input.GetMouseButtonDown(0))
-        {
             isPressedMouseButton = true;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
+        else if (Input.GetMouseButtonUp(0))
             isPressedMouseButton = false;
-        } 
-        onAimBowPersonAnimator.Invoke(isPressedMouseButton);
-    }
+        if (isKeyDown)
+            onAimBowPersonAnimator.Invoke(isPressedMouseButton);
+    } 
     private void InputMouseDrectionRotateCamera()
     {   
         inputMouseX += Input.GetAxis("Mouse X");
-        inputMouseY -= Input.GetAxis("Mouse Y");
+        inputMouseY -= Input.GetAxis("Mouse Y"); 
+        onAxisDirectionRotateCamera.Invoke(inputMouseX, inputMouseY); 
+    }
+    private void InputMouseScroll()
+    {
         currentZoomMouse -= Input.GetAxis("Mouse ScrollWheel");
-        onAxisDirectionRotateCamera.Invoke(inputMouseX, inputMouseY);
         onInputZoomCamera.Invoke(currentZoomMouse);
     }
     private void InputKeyJumpPerson()

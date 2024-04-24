@@ -162,6 +162,7 @@ MonoBehaviour:
   bowHand: {fileID: 1183204488274426442}
   bowBack: {fileID: 6113848713244466848}
   arrow: {fileID: 7675354304471670032}
+  cameraPerson: {fileID: 0}
 --- !u!1 &6043925987913077215
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,13 +187,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6043925987913077215}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.58, z: 0}
+  m_LocalRotation: {x: 0, y: -0.13052624, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: 1.577, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5418616265337661561}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -15, z: 0}
 --- !u!1001 &3367417183180837323
 PrefabInstance:
   m_ObjectHideFlags: 0
