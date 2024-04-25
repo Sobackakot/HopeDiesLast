@@ -6,22 +6,18 @@ using UnityEngine;
 public partial class GetInputSystem : SystemBase
 {
     private InputActions inputActions;
-    private Entity _entityPerson;
     protected override void OnCreate()
     {
-        RequireForUpdate<PersonTag>();
         RequireForUpdate<PersonMoveInput>();
         inputActions = new InputActions();
     }
     protected override void OnStartRunning()
     {
         inputActions.Enable();
-        _entityPerson = SystemAPI.GetSingletonEntity<PersonTag>();
     }
     protected override void OnStopRunning()
     {
         inputActions.Disable();
-        _entityPerson = Entity.Null;
     }
     protected override void OnUpdate()
     {

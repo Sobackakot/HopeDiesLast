@@ -15,14 +15,7 @@ public class BakePersonComponent : MonoBehaviour
             AddComponent(entity, new PersonMoveSpeed
             {
                 speed = authoring._speed
-            });
-            AddComponent(entity, new PersonTag());
-            AddComponent(entity, new FireProjectileTag());
-            SetComponentEnabled<FireProjectileTag>(entity,false);
-            AddComponent(entity, new ProjectilePrefub
-            {
-                entity = GetEntity(authoring._projectilePrefub, TransformUsageFlags.Dynamic)
-            });
+            }); 
         }
     }
 } 
