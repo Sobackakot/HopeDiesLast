@@ -241,13 +241,14 @@ GameObject:
   - component: {fileID: 828386227}
   - component: {fileID: 828386226}
   - component: {fileID: 828386225}
+  - component: {fileID: 828386230}
   - component: {fileID: 828386229}
   m_Layer: 0
   m_Name: PersonEntity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!136 &828386225
 CapsuleCollider:
@@ -330,8 +331,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828386224}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.13, z: 0}
+  m_LocalRotation: {x: 0, y: 0.00000019587034, z: 0.000000010937198, w: 1}
+  m_LocalPosition: {x: -4.6733106e-10, y: 0.11000014, z: -0.0000006109476}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -347,11 +348,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 828386224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff5d0aca39a91074da13c020e92ee4e5, type: 3}
+  m_Script: {fileID: 11500000, guid: cfaef4825cae1134f8a5d464898578c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
-  _projectilePrefub: {fileID: 1081954304112786496, guid: d922d5e7ce0fcb0439a9bb7b78bb0341, type: 3}
+  forceAmount: 10
+  forwardInputKey: 32
+--- !u!54 &828386230
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828386224}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &1936907775
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +397,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1936907776
 Transform:
