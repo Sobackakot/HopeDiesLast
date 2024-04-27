@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BakePersonComponent : MonoBehaviour
 { 
-    public float _speed = 0f;
-    public GameObject _projectilePrefub;
+    public float _speed = 0f; 
     class Baker : Baker<BakePersonComponent>
     {
         public override void Bake(BakePersonComponent authoring)
